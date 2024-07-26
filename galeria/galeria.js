@@ -1,3 +1,3 @@
-import "../style.css";
+import "../css/style.css";
 
 console.log("Galeria page");

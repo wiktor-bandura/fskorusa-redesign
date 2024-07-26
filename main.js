@@ -1,4 +1,4 @@
-import "./css/style.css";
+import "./css/style.scss";
 import "./scripts/timeline.js";
 
 import feather from "feather-icons";

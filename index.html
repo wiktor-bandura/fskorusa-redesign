@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="" />
@@ -7,10 +7,13 @@
     <title>Franciszek Skorusa - Strona Internetowa</title>
   </head>
   <body>
-    <header class="page-navbar">
+    <header class="container page-navbar">
       <div class="page-navbar__wrapper">
-        <a href="/"><span>Franciszek</span>Skorusa</a>
+        <a class="homepage-link" href="/"><span>Franciszek</span>Skorusa</a>
 
+        <button class="burger">
+          <i data-feather="menu"></i>
+        </button>
         <nav class="page-navbar__menu">
           <ul class="page-navbar__menu-list">
             <li class="page-navbar__menu-list__item"><a href="/galeria/">Galeria</a></li>
@@ -21,15 +24,19 @@
             <a class="page-navbar__social" href="#">
               <i data-feather="facebook"></i>
             </a>
-            <a class="page-navbar__socials" href="#">
+            <a class="page-navbar__social" href="#">
               <i data-feather="youtube"></i> 
             </a>
           </div>
+
+          <button class="close-menu">
+            <i data-feather="x"></i>
+          </button>
         </nav>
       </div>
     </header>
     <main class="main-page">
-        <div class="front-page">
+        <div class="container front-page">
           <img src="./images/skorusa.png" alt="Ksiądz Prałat Franciszek Skorusa podczas homilii">
           <div class="front-page__text">
             <h1 class="font-page__title">Ksiądz Prałat Franciszek Skorusa</h1>
@@ -302,10 +309,10 @@
           </ul>
         </nav>
         <div class="footer__socials-wrapper">
-          <a class="page-navbar__social" href="#">
+          <a class="footer__social" href="#">
             <i data-feather="facebook"></i>
           </a>
-          <a class="page-navbar__socials" href="#">
+          <a class="footer__socials" href="#">
             <i data-feather="youtube"></i> 
           </a>
         </div>

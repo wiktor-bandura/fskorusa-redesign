@@ -1,3 +1,8 @@
 @import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import '/css/abstracts/variables';
+@import '/css/base/base';
+@import '/css/abstracts/mixins';
 @import '/css/base/utilities';
+@import '/css/layout/layout';

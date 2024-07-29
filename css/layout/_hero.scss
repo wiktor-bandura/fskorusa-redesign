@@ -1,0 +1,74 @@
+.front-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.375rem;
+    flex-wrap: wrap;
+    text-align: center;
+
+    &__picture {
+        position: relative;
+        display: block;
+        width:100%;
+        max-width: 360px;
+        max-height: 417px;
+
+        & > img {
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 100%;
+            height: 100%;
+            background-color: $color-light-creme;
+            border-radius: 15px;
+            visibility: hidden;
+        }
+    }
+
+    &__text {
+        max-width: 430px;
+    }
+
+    &__title {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 120%;
+    }
+
+    &__quote {
+        font-size: 1.06rem;
+        font-style: italic;
+        font-weight: 300;
+        color: $text-grey;
+        line-height: 170%;
+
+        &__sign {
+            display: block;
+            margin-top: 20px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        text-align: left;
+        gap: 4.375rem;
+
+        &__picture {
+            &::after {
+                visibility: visible;   
+            }
+        }
+    }
+
+    @media (min-width: 1200px) {
+
+        &__picture {max-width: 470px;}
+        
+    }
+}

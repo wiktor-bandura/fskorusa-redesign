@@ -5,7 +5,6 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const swiper = new Swiper(".timeline", {
-  slidesPerView: 3,
   spaceBetween: 30,
   freeMode: true,
   pagination: {

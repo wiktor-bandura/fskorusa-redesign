@@ -2,3 +2,15 @@
 @import "./hero";
 @import "./entry";
 @import "./timeline";
+@import "./memories";
+@import "./footer";
+
+.book, .movie, .square, .memories, .souvernirs {
+    margin: 3rem auto;
+    position: relative;
+}
+
+.memories {
+    padding: 3rem 1rem;
+    background-color: $color-light-creme;
+}

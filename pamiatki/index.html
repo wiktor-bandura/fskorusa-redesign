@@ -7,10 +7,13 @@
     <title>Pamiątki | Franciszek Skorusa - Strona Internetowa</title>
   </head>
   <body>
-    <header class=" page-navbar">
-      <div class="container page-navbar__wrapper">
-        <a href="/"><span>Franciszek</span>Skorusa</a>
+    <header class="container page-navbar">
+      <div class="page-navbar__wrapper">
+        <a class="homepage-link" href="/"><span>Franciszek</span>Skorusa</a>
 
+        <button class="burger">
+          <i data-feather="menu"></i>
+        </button>
         <nav class="page-navbar__menu">
           <ul class="page-navbar__menu-list">
             <li class="page-navbar__menu-list__item"><a href="/galeria/">Galeria</a></li>
@@ -21,14 +24,19 @@
             <a class="page-navbar__social" href="#">
               <i data-feather="facebook"></i>
             </a>
-            <a class="page-navbar__socials" href="#">
+            <a class="page-navbar__social" href="#">
               <i data-feather="youtube"></i> 
             </a>
           </div>
+
+          <button class="close-menu">
+            <i data-feather="x"></i>
+          </button>
         </nav>
       </div>
     </header>
     <h1>Pamiątki</h1>
+    <script type="module" src="/main.js"></script>
     <script type="module" src="/pamiatki/pamiatki.js" defer></script>
   </body>
 </html>

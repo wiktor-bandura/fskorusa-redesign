@@ -3,6 +3,7 @@
 @import "./entry";
 @import "./timeline";
 @import "./memories";
+@import "./_gallery";
 @import "./footer";
 
 .book, .movie, .square, .memories, .souvernirs {
@@ -10,7 +11,8 @@
     position: relative;
 }
 
-.memories {
-    padding: 3rem 1rem;
-    background-color: $color-light-creme;
+.square__localization,
+.memories__mail-link {
+    @include linkWithIcon;
 }
+

@@ -6,3 +6,13 @@
             border: 0;
             border-radius: 4px;
 }
+
+@mixin linkWithIcon {
+    color: $text-grey;
+    font-size: 1.25rem;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 0;
+}

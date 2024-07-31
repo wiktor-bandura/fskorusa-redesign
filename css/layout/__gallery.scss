@@ -1,0 +1,11 @@
+.gallery {
+
+    .front-page-section-wrapper {
+        flex-direction: row-reverse;
+    }
+    
+    &__photos-examples {
+        display: flex;
+        gap: 10px;
+    }
+}

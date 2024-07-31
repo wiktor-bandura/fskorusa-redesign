@@ -1,0 +1,49 @@
+.memories {
+    padding: 4rem 1rem;
+    background-color: $color-light-creme;
+
+    &__title {
+        font-size: 1.75rem;
+    }
+
+    &__subtitle {
+        font-size: 1.4rem;
+    }
+
+    &__content {
+        gap: 1.5rem;
+
+        & > .memory {
+            font-weight: 200;
+            font-size: 1rem;
+            color: $text-grey;
+            font-style: italic;
+            line-height: 150%;
+
+            .memory__sign {
+                display: block;
+                margin-top: 1rem;
+                text-align: right;
+                font-weight: 400;
+            }
+        }
+    }
+
+    &__share-memory {
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+
+        &-title {
+            font-size: 1.50rem;
+        }
+
+        p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: $text-grey;
+            line-height: 150%;
+        }
+    }
+}

@@ -1,6 +1,8 @@
 .memories {
     padding: 4rem 1rem;
     background-color: $color-light-creme;
+    border-top: 1px solid $color-creme-hover;
+    border-bottom: 1px solid $color-creme-hover;
 
     &__title {
         font-size: 1.75rem;
@@ -15,10 +17,10 @@
 
         & > .memory {
             font-weight: 200;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: $text-grey;
             font-style: italic;
-            line-height: 150%;
+            line-height: 160%;
 
             .memory__sign {
                 display: block;

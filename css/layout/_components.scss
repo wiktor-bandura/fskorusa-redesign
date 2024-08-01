@@ -7,6 +7,10 @@
     padding: 0;
 }
 
+a {
+    color: $text-black;
+}
+
 .button {
     display: block;
     text-decoration: none;
@@ -17,8 +21,14 @@
     width: fit-content;
     background-color: $color-creme;
     padding: 1rem 2rem;
+    border: 1px solid $color-creme-hover;
     border-radius: 7px;
     margin: 2.5rem auto;
+    transition: .1s ease-in-out;
+
+    &:hover {
+        background-color: $color-creme-hover;
+    }
 }
 
 .front-page-section-wrapper {
@@ -26,6 +36,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap:wrap-reverse;
+    row-gap: 2rem;
     
 
     &__description {
@@ -51,17 +62,15 @@
 
     &__image {
         display: block;
-        width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
-        max-width: 387px;
         max-height: 387px;
         border-radius: 10px;
 
         &--gallery {
-            max-width: 170px;
-            height: 220px;
+            max-width: 105px;
+            height: 200px;
         }
     }
 }

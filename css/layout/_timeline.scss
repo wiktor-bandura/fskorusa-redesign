@@ -3,22 +3,25 @@
     &__title {
         font-size: 2rem;
         margin-bottom: 3.75rem;
+        padding: 0 1rem;
     }
 
     &__wrapper {
         cursor: grab;
+        padding: 0 1rem;
     }
 
     &__item {
         display: flex !important;
         flex-direction: column;
-        height: 200px !important;
+        height: 210px !important;
         margin-right: 1.5rem !important;
         background-color: $color-creme;
         border-radius: 8px;
         padding: 2rem;
         gap: 10px;
         line-height: 150%;
+        border: 1px solid $color-creme-hover;
 
         & > strong {
             font-size: 1.275rem;

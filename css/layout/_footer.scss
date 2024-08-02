@@ -34,11 +34,18 @@
         justify-content: center;
 
         &-item {
-            padding: 1rem 1rem;
+            
 
             a {
                 text-decoration: none;
                 color: $text-grey;
+                padding: 1rem 1rem;
+                transition: .1s ease-in-out;
+
+                &:hover {
+                    background-color: $color-creme-hover;
+                    border-radius: 4px;
+                }
             }
         }
     }
@@ -53,6 +60,12 @@
             color: $text-black;
             width: 30px;
             height: 30px;
+            transition: .1s ease-in-out;
+
+            &:hover {
+                color: $color-creme-hover;
+                border-radius: 4px;
+            }
         }
     }
 
@@ -65,7 +78,7 @@
 
         a {
             color: $text-black;
-            font-weight: 600;
+            font-weight: 600;           
         }
     }
 }

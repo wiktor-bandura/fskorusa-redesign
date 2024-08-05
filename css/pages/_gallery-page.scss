@@ -1,0 +1,12 @@
+.buttons-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    gap: .3rem;
+    overflow-x: scroll;
+    
+    .button {
+        padding: .5rem 2rem;
+        margin: 10px 0;
+    }
+}

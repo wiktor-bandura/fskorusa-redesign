@@ -22,9 +22,10 @@
         gap: 10px;
         line-height: 150%;
         border: 1px solid $color-creme-hover;
+        max-width: 380px;
 
         & > strong {
-            font-size: 1.275rem;
+            font-size: 1.475rem;
             text-transform: uppercase;
             font-weight: 600;
         }

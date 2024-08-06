@@ -35,10 +35,17 @@
         </nav>
       </div>
     </header>
-    <main class="container">
-      <h1>Galeria</h1>
-      <div class="buttons-wrapper" id="buttons"></div>
-        <div class="photos-container" id="photos"></div>
+    <main class="gallery-page">
+      <div class="container gallery-page__entry">
+        <h1 class="gallery-page__title">Galeria</h1>
+      <article class="gallery-page__content u-margin-bottom-small">
+        Witamy w galerii zdjęć ks. prałata Franciszka Skorusy. Tutaj znajdziesz fotografie z różnych etapów jego życia i pracy duszpasterskiej. Przeglądaj zdjęcia, aby zobaczyć ważne momenty i codzienne chwile ks. prałata. Możesz filtrować zdjęcia według kategorii, takich jak wydarzenia, rocznice, spotkania i inne. Zapraszamy do oglądania
+      </article>
+      </div>
+      <div class="buttons-swiper">
+        <div class="buttons-wrapper swiper-wrapper" id="buttons"></div>
+      </div>
+        <div class="container photos-wrapper" id="photos"></div>
     </main>
     <script type="module" src="/main.js"></script>
     <script type="module" src="galeria.js"></script>

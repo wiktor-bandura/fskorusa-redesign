@@ -1,12 +1,30 @@
-.buttons-wrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: flex-start;
-    gap: .3rem;
-    overflow-x: scroll;
-    
-    .button {
-        padding: .5rem 2rem;
-        margin: 10px 0;
+@import '/css/abstracts/variables';
+
+
+.gallery-page {
+
+    &__title {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 120%;
     }
+
+    &__content {
+        color: $text-grey;
+        font-size: 1.2rem;
+        line-height: 150%;
+        max-width: 770px;
+        font-weight: 300;
+    }
+}
+
+.swiper-slide {
+    max-width: 240px !important;
+}
+
+.photos-wrapper {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-rows: masonry;
 }

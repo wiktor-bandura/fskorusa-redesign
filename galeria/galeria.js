@@ -1,5 +1,11 @@
+import Swiper from "swiper";
+
 import "../css/style.scss";
 import "../css/pages/_gallery-page.scss";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const config = {
   API_KEY: "x",
@@ -16,28 +22,26 @@ function getFlickrAlbums() {
     .then((data) => {
       if (data.stat === "ok") {
         const albums = data.photosets.photoset;
-        console.log(albums);
         const buttonsContainer = document.getElementById("buttons");
         let buttonsHTML = "";
 
         albums.forEach((album) => {
           const button = document.createElement("button");
-          button.classList.add("button");
+          button.classList.add("button", "swiper-slide");
           button.textContent = album.title._content;
 
           button.addEventListener("click", () => {
             getPhotosFromAlbum(album.id);
-            photosContainer.innerHTML = '<span class="loader"></span>';
           });
 
           buttonsContainer.appendChild(button);
         });
       } else {
-        console.error("BĹÄd pobierania albumĂłw z API Flickr.");
+        console.error("Błąd albumów z API Flickr.");
       }
     })
     .catch((error) => {
-      console.error("WystÄpiĹ bĹÄd podczas komunikacji z API Flickr.", error);
+      console.error("Wystąpił błąd podczas komunikacji z API Flickr.", error);
     });
 }
 
@@ -51,11 +55,9 @@ function getPhotosFromAlbum(albumId) {
         let galleryHTML = "";
 
         const photos = data.photoset.photo;
-        console.log(photos);
 
-        photosContainer.innerHTML = ""; // WyczyĹÄ poprzednie zdjÄcia
+        photosContainer.innerHTML = "";
 
-        // WyĹwietl zdjÄcia
         photos.forEach((photo) => {
           const photoUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_m.jpg`;
 
@@ -64,13 +66,47 @@ function getPhotosFromAlbum(albumId) {
 
         return galleryHTML;
       } else {
-        console.error("BĹÄd pobierania zdjÄÄ z API Flickr.");
+        console.error("Błąd podczas pobirania zdjęć z Flickr.");
       }
     })
     .then((html) => (photosContainer.innerHTML = html))
     .catch((error) => {
-      console.error("WystÄpiĹ bĹÄd podczas komunikacji z API Flickr.", error);
+      console.error("Wystąpił błąd:", error);
     });
 }
 
 getFlickrAlbums();
+
+let swiper = null;
+
+if (document.querySelector(".buttons-swiper")) {
+  swiper = new Swiper(".buttons-swiper", {
+    breakpoints: {
+      // 640: {
+      //   slidesPerView: 2,
+      //   spaceBetween: 20,
+      // },
+      // 768: {
+      //   slidesPerView: 4,
+      //   spaceBetween: 40,
+      // },
+      1024: {
+        slidesPerView: "auto",
+        spaceBetween: 50,
+      },
+    },
+    freemode: false,
+    loop: false,
+
+    on: {
+      slideChange: function () {
+        // Upewnij się, że swiper nie przesuwa się poza ostatni slajd
+        if (this.isEnd) {
+          this.allowSlideNext = false;
+        } else {
+          this.allowSlideNext = true;
+        }
+      },
+    },
+  });
+}

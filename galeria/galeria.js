@@ -1,11 +1,5 @@
-import Swiper from "swiper";
-
 import "../css/style.scss";
 import "../css/pages/_gallery-page.scss";
-
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 const config = {
   API_KEY: "x",
@@ -13,6 +7,8 @@ const config = {
 };
 
 const photosContainer = document.getElementById("photos");
+const defaultOption = document.createElement("option");
+defaultOption.textContent = "Wybierz album";
 
 function getFlickrAlbums() {
   const apiUrl = `https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=${config.API_KEY}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`;
@@ -24,13 +20,15 @@ function getFlickrAlbums() {
         const albums = data.photosets.photoset;
         const buttonsContainer = document.getElementById("buttons");
         let buttonsHTML = "";
+        buttonsContainer.appendChild(defaultOption);
 
         albums.forEach((album) => {
-          const button = document.createElement("button");
+          const button = document.createElement("option");
           button.classList.add("button", "swiper-slide");
+          button.value = album.title._content;
           button.textContent = album.title._content;
 
-          button.addEventListener("click", () => {
+          buttonsContainer.addEventListener("change", () => {
             getPhotosFromAlbum(album.id);
           });
 
@@ -76,37 +74,3 @@ function getPhotosFromAlbum(albumId) {
 }
 
 getFlickrAlbums();
-
-let swiper = null;
-
-if (document.querySelector(".buttons-swiper")) {
-  swiper = new Swiper(".buttons-swiper", {
-    breakpoints: {
-      // 640: {
-      //   slidesPerView: 2,
-      //   spaceBetween: 20,
-      // },
-      // 768: {
-      //   slidesPerView: 4,
-      //   spaceBetween: 40,
-      // },
-      1024: {
-        slidesPerView: "auto",
-        spaceBetween: 50,
-      },
-    },
-    freemode: false,
-    loop: false,
-
-    on: {
-      slideChange: function () {
-        // Upewnij się, że swiper nie przesuwa się poza ostatni slajd
-        if (this.isEnd) {
-          this.allowSlideNext = false;
-        } else {
-          this.allowSlideNext = true;
-        }
-      },
-    },
-  });
-}

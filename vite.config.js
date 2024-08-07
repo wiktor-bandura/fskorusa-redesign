@@ -2,8 +2,11 @@ import Inspect from "vite-plugin-inspect";
 import { resolve } from "path";
 
 export default {
+  base: "./",
   plugins: [Inspect()],
   build: {
+    assetsDir: "./assets",
+    outDir: "dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),

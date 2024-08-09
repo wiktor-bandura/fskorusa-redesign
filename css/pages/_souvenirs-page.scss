@@ -1,0 +1,17 @@
+@import '/css/abstracts/variables';
+
+.souvenirs-page {
+    &__title {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 120%;
+    }
+
+    &__content {
+        color: $text-grey;
+        font-size: 1.2rem;
+        line-height: 150%;
+        max-width: 770px;
+        font-weight: 300;
+    }
+}

@@ -15,3 +15,38 @@
         font-weight: 300;
     }
 }
+
+.memories-list {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 4rem;
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &__title {
+            font-size: 2rem;
+        }
+        
+        i {
+            font-size: 1.25rem;
+            line-height: 150%;
+            font-weight: 300;
+        }
+
+        .sign {
+            align-self: right;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        &::marker {
+            display: block;
+        }
+    }
+}

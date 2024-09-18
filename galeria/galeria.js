@@ -2,7 +2,7 @@ import "../css/style.scss";
 import "../css/pages/_gallery-page.scss";
 
 const config = {
-  API_KEY: "x",
+  API_KEY: "",
   USER_ID: "x",
 };
 

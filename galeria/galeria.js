@@ -2,8 +2,8 @@ import "../css/style.scss";
 import "../css/pages/_gallery-page.scss";
 
 const config = {
-  API_KEY: "x",
-  USER_ID: "x",
+  API_KEY: "32e7f055b8a98f088ae52b5bc40e19b2",
+  USER_ID: "147804453@N02",
 };
 
 const photosContainer = document.getElementById("photos");

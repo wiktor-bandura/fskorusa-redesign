@@ -15,3 +15,23 @@
         font-weight: 300;
     }
 }
+
+.souvenirs-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    row-gap: 2rem;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        gap: 20px;
+
+        &-buttons-wrapper {
+            display: flex;
+            gap: 15px;
+        }
+    }
+}

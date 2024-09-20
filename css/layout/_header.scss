@@ -40,19 +40,25 @@
         position: fixed;
         bottom: 0;
         left: 0;
-        height: 400px;
+        height: 100svh;
         width: 100%;
         background-color: $color-creme;
         color: $text-black;
         padding: 2rem 1rem;
         z-index: 100;
         display: flex;
-        border-top-left-radius: 25px;
-        border-top-right-radius: 25px;
+        align-items: center;
+        justify-content: center;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
         flex-direction: column;
-        justify-content: flex-end;
-        box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
-        display: none;
+        justify-content: center;
+        box-shadow: none;
+        transform: translateX(1000000%);
+
+        &--active {
+            transform: translateX(0);
+        }
     
         &-list {
             list-style: none;
@@ -66,8 +72,10 @@
                 color: $text-black;
                 font-weight: 700;
                 text-decoration: none;
-                padding: 10px;
-                transition: .1s ease-in-out;
+                padding: 18px;
+                font-size: 1.2rem;
+                font-weight: 300;
+                
 
                 &:hover {
                     background-color: $color-creme-hover;
@@ -84,6 +92,9 @@
             color: $text-black;
             background-color: $color-creme-hover;
             @include navButton;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
         }
     }
 
@@ -105,8 +116,8 @@
         justify-content: center;
         padding: 10px;
         border-radius: 50%;
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
         transition: .1s ease-in-out;
 
             &:hover {
@@ -116,7 +127,6 @@
     }
 
     @media (min-width: 768px) {
-
         
         .burger {
             display: none;
@@ -129,6 +139,8 @@
             position: relative;
             box-shadow: none;
             background-color: transparent;
+            transform: translateX(0);
+            justify-content: flex-end;
 
             & > .close-menu { display: none; }
 

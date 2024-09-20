@@ -1,0 +1,218 @@
+@import '/css/abstracts/variables';
+@import '/css/abstracts/mixins';
+
+.biography-page {
+
+    &__title {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 120%;
+    }
+
+    &__content {
+        color: $text-grey;
+        font-size: 1.2rem;
+        line-height: 150%;
+        max-width: 770px;
+        font-weight: 300;
+    }
+}
+
+.section-timeline {
+    padding: 1rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr .6rem 1fr;
+    grid-template-rows: min-content repeat(5, min-content);
+    grid-gap: 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    @media only screen and (min-width: $bp-large) {
+        max-width: 1200px;
+    }
+
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 300;
+        grid-column: 1/-1;
+    }
+
+    &__stage-wrapper {
+        
+        &--1 {
+            @include timelineGridOne;
+            grid-row: 2 / 3;
+        }
+
+        &--2 {
+            @include timelineGridTwo;
+            grid-row: 3 / 4;
+        }
+
+        &--3 {
+            @include timelineGridOne;
+            grid-row: 4 / 5;
+        }
+
+        &--4 {
+            @include timelineGridTwo;
+            grid-row: 5 / 6;
+        }
+
+        &--5 {
+            @include timelineGridOne;
+            grid-row: 6 / 7;
+        }
+
+        &-text {
+            color: $text-grey;
+            font-size: 1.2rem;
+            line-height: 150%;
+            max-width: 770px;
+            font-weight: 300;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1/-1;
+
+            &--1 {
+                grid-row: 2/3;
+            }
+    
+            &--2 {
+                grid-row: 4/5;
+            }
+    
+            &--3 {
+                grid-row: 6/7;
+            }
+    
+            &--4 {
+                grid-row: 8/9;
+            }
+    
+            &--5 {
+                grid-row: 10/11;
+            }
+        }
+    }
+
+    &__stage-img {
+        width: 100%;
+        min-height: 500px;
+        position: relative;
+
+
+        &--1 {
+            @include timelineGridTwo;
+        }
+
+        &--2 {
+            @include timelineGridOne;
+        }
+
+        &--3 {
+            @include timelineGridTwo;
+        }
+
+        &--4 {
+            @include timelineGridOne;
+        }
+
+        &--5 {
+            @include timelineGridTwo;
+        }
+
+        @media only screen and (max-width: $bp-medium) {
+            grid-column: 1/-1;
+
+            &--1 {
+                grid-row: 3/4;
+            }
+    
+            &--2 {
+                grid-row: 5/6;
+            }
+    
+            &--3 {
+                grid-row: 7/8;
+            }
+    
+            &--4 {
+                grid-row: 9/10;
+            }
+    
+            &--5 {
+                grid-row: 11/12;
+            }
+        }
+    }
+
+    &__line {
+        background-color: $color-creme-hover;
+        grid-column: 2 / 3;
+        grid-row: 2 / -1;
+
+        @media only screen and (max-width: $bp-medium) {
+            display: none;
+        }
+    }
+
+    &__photo {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        max-height: 100%;
+        object-fit: scale-down;
+        opacity: 0;
+        transform: translateY(-50%);
+        transition: opacity .2s ease-in-out;
+
+        &--active {
+            opacity: 1;
+        }
+    }
+
+    &__prev-button,
+    &__next-button {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        top: 50%;
+        z-index: 10;
+        color: $text-grey;
+        width: 3.75rem;
+        height: 3.75rem;
+        text-decoration: none;
+        font-size: 1.875rem;
+        padding: 1rem;
+        border-radius: 50%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        background-color: $color-creme-hover;
+        transition: all .3s;
+
+        &::selection {
+            background-color: transparent;
+            color: inherit;
+        }
+
+        &:hover {
+            background-color: $text-grey;
+            color: $color-creme-hover;
+        }
+    }
+
+    &__next-button {
+        left: 100%;
+    }
+}

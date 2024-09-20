@@ -1,0 +1,1 @@
+import "/css/pages/_biography-page.scss";

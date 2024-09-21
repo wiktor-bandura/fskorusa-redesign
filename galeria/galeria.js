@@ -3,7 +3,7 @@ import "../css/pages/_gallery-page.scss";
 
 const config = {
   API_KEY: "x",
-  USER_ID: "X",
+  USER_ID: "x",
 };
 
 const photosContainer = document.getElementById("photos");

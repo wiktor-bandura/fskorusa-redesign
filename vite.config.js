@@ -1,9 +1,10 @@
 import Inspect from "vite-plugin-inspect";
+import Sitemap from 'vite-plugin-sitemap';
 import { resolve } from "path";
 
 export default {
   base: "",
-  plugins: [Inspect()],
+  plugins: [Inspect(),Sitemap({ hostname: "https://www.fskorusa.archidiecezja.wroc.pl/" })],
   build: {
     assetsDir: "assets",
     outDir: "dist",

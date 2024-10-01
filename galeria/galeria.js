@@ -92,7 +92,7 @@ class Lightbox {
   init() {
     const images = document.querySelectorAll(".photos-wrapper__photo");
     images.forEach((image) =>
-      image.addEventListener("click", () => {
+      image.addEventListener("click", (e) => {
         this.show(image.getAttribute("src"), image.getAttribute("title"));
       })
     );

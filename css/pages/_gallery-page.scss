@@ -73,7 +73,7 @@
     opacity: 0;
     transition: all 0.3s ease;
 
-    & .lightbox {
+    & > .lightbox {
         padding: 1rem;
         display: flex;
         flex-direction: column;
@@ -82,14 +82,24 @@
         gap: 20px;
         font-size: 16px;
         color: #fff;
+
+       
       }
 
-      &__image {
+      .lightbox__image {
         width: 100%;
         max-width: 1000px;
         height: auto;
         max-height: 80vh;
         object-fit: contain;
+      }
+
+      .lightbox__buttons {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        max-height: 55px;
       }
   }
 

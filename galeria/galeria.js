@@ -13,7 +13,7 @@ defaultOption.textContent = "Wybierz album";
 function getFlickrAlbums() {
   const apiUrl = `https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=${config.API_KEY}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`;
 
-  console.log(apiUrl);
+ 
 
   fetch(apiUrl)
     .then((response) => response.json())
@@ -51,7 +51,7 @@ function getPhotosFromAlbum(albumId) {
 
   const apiUrl = `https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=${config.API_KEY}&photoset_id=${albumId}&user_id=${config.USER_ID}&format=json&nojsoncallback=1`;
 
-  console.log(apiUrl)
+ 
 
   fetch(apiUrl)
     .then((response) => response.json())
@@ -86,12 +86,13 @@ getFlickrAlbums();
 class Lightbox {
   constructor() {
     this.lightboxWrapper = document.querySelector(".lightbox-wrapper");
+    this.images = document.querySelectorAll(".photos-wrapper__photo");
     this.init();
   }
 
   init() {
-    const images = document.querySelectorAll(".photos-wrapper__photo");
-    images.forEach((image) =>
+
+    this.images.forEach((image) =>
       image.addEventListener("click", (e) => {
         this.show(image.getAttribute("src"), image.getAttribute("title"));
       })
@@ -108,6 +109,22 @@ class Lightbox {
       .then(() => {
         let ligthbox = document.createElement("div");
         let lightboxCaption = document.createElement("p");
+        let buttons = document.createElement("div");
+        let left = document.createElement('div');
+        let right = document.createElement('div');
+        left.innerHTML = ` &larr;`;
+        right.innerHTML = ` &rarr;`;
+
+        buttons.classList.add("lightbox__buttons");
+        left.classList.add("prev-photo");
+        right.classList.add("next-photo");
+        left.classList.add("button");
+        right.classList.add("button");
+
+        buttons.appendChild(left);
+        buttons.appendChild(right);
+
+        left.classList.add("prev-photo");
 
         ligthbox.classList.add("lightbox");
         lightboxCaption.classList.add("ligthbox__caption");
@@ -116,15 +133,25 @@ class Lightbox {
 
         ligthbox.appendChild(img);
         ligthbox.appendChild(lightboxCaption);
-
+        ligthbox.appendChild(buttons);
         return ligthbox;
       })
       .then((ligthbox) => {
+       
         this.lightboxWrapper.appendChild(ligthbox);
         this.lightboxWrapper.classList.add("visible");
 
-        this.lightboxWrapper.addEventListener("click", () => {
-          this.hide();
+        this.lightboxWrapper.addEventListener("click", (e) => {
+          
+          if(e.target.classList.contains('prev-photo') && document.querySelector('.lightbox__image')) {
+            this.changeSlide(document.querySelector('.lightbox__image').getAttribute('src').replace("b.jpg", "m.jpg"), true);
+          } 
+          else if(e.target.classList.contains('next-photo') && document.querySelector('.lightbox__image')) {
+            this.changeSlide(document.querySelector('.lightbox__image').getAttribute('src').replace("b.jpg", "m.jpg"), false);
+          }
+          else {
+            this.hide();
+          }
         });
       })
       .catch((encodingError) => console.error(encodingError));
@@ -133,6 +160,36 @@ class Lightbox {
   hide() {
     this.lightboxWrapper.innerHTML = ``;
     this.lightboxWrapper.classList.remove("visible");
+  }
+
+  changeSlide(currentImageSrc, isLeft) {
+
+    this.images.forEach((image, index) => {
+      if(image.src == currentImageSrc) {
+
+        this.hide();
+        
+        if(isLeft) {
+          if(index - 1 < 0) {
+            this.show(this.images[this.images.length - 1].src, this.images[this.images.length - 1].getAttribute('title'));
+          }
+          else {
+            this.show(this.images[index - 1].src, this.images[index - 1].getAttribute('title'));
+          }
+        }
+
+        if(!isLeft) {
+
+          if(index + 1 == this.images.length) {
+            this.show(this.images[0].src, this.images[0].getAttribute('title'));
+          }
+          else {
+            this.show(this.images[index + 1].src, this.images[index + 1].getAttribute('title'));
+          }
+        }
+      }
+    })
+
   }
 }
 

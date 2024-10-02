@@ -29,9 +29,21 @@
         text-align: center;
         gap: 20px;
 
+        &-desc {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+             
+        }
+
         &-buttons-wrapper {
             display: flex;
             gap: 15px;
         }
     }
+}
+
+audio::-webkit-media-controls-panel{
+    background-color:$color-creme !important;
 }
